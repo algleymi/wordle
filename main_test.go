@@ -7,5 +7,5 @@ import (
 )
 
 func Test_MainPanics(t *testing.T) {
-	assert.Panics(t, func () { main()})
+	assert.Panics(t, func() { main() })
 }
