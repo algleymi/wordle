@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func Test_DictionaryListsWords(t *testing.T)  {
+func Test_DictionaryListsWords(t *testing.T) {
 	wordlist := GetWordList()
 	assert.Len(t, wordlist, 370103)
 }
