@@ -12,7 +12,7 @@ func GetWordList() []string {
 }
 
 func readWordListFromFile() []string {
-	data, _ := ioutil.ReadFile("./words_alpha.txt")
+	data, _ := ioutil.ReadFile("./words.txt")
 	text := string(data)
 	words := strings.Split(text, "\n")
 	return words
