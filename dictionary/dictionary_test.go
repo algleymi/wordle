@@ -9,20 +9,7 @@ import (
 
 func Test_DictionaryListsWords(t *testing.T) {
 	wordlist := GetWordList()
-	assert.Len(t, wordlist, 370103)
-}
-
-func Test_FiveLetterWordsList(t *testing.T) {
-	wordlist := GetFiveLetterWordList()
-	for _, word := range wordlist {
-		assert.Len(t, word, 5)
-	}
-}
-
-func Benchmark_FiveLetterWordsList(b *testing.B) {
-	for i := 0; i < b.N; i++ {
-		GetFiveLetterWordList()
-	}
+	assert.Equal(t, 12972, len(wordlist))
 }
 
 func Test_SelectRandomWordReturnsErrorWhenListIsEmpty(t *testing.T) {
