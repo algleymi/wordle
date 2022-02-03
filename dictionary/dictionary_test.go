@@ -2,6 +2,7 @@ package dictionary
 
 import (
 	"errors"
+	"math/rand"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -13,7 +14,8 @@ func Test_DictionaryListsWords(t *testing.T) {
 }
 
 func Test_SelectRandomWordReturnsErrorWhenListIsEmpty(t *testing.T) {
-	_, err := SelectRandomWordFromList([]string{})
+	generator := rand.New(rand.NewSource(1))
+	_, err := SelectRandomWordFromList(generator, []string{})
 	assert.True(t, errors.Is(err, ErrEmptyWordlist))
 }
 
@@ -25,23 +27,8 @@ func Test_SelectRandomWordReturnsRandomWord(t *testing.T) {
 		"aahed",
 	}
 
-	var uniqueWords []string
-	for len(uniqueWords) < len(wordlist) {
-		word, _ := SelectRandomWordFromList(wordlist)
-		if !contains(uniqueWords, word) {
-			uniqueWords = append(uniqueWords, word)
-		}
-	}
+	generator := rand.New(rand.NewSource(1))
+	word, _ := SelectRandomWordFromList(generator, wordlist)
 
-	assert.ElementsMatch(t, uniqueWords, wordlist)
-}
-
-func contains(list []string, word string) bool {
-	for _, value := range list {
-		if word == value {
-			return true
-		}
-	}
-
-	return false
+	assert.Equal(t, "stuff", word)
 }

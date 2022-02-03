@@ -18,12 +18,17 @@ func readWordListFromFile() []string {
 	return words
 }
 
-func SelectRandomWordFromList(wordlist []string)  (string, error) {
+func SelectRandomWordFromList(generator *rand.Rand, wordlist []string) (string, error) {
 	if len(wordlist) == 0 {
 		return "", ErrEmptyWordlist
 	}
-	index := rand.Intn(len(wordlist))
-	return wordlist[index], nil
+	index := generator.Intn(len(wordlist))
+
+	return SelectWordFromList(wordlist, index), nil
+}
+
+func SelectWordFromList(wordlist []string, index int) string {
+	return wordlist[index]
 }
 
 var ErrEmptyWordlist = errors.New("wordlist is empty")
