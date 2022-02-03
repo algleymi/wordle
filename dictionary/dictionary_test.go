@@ -17,7 +17,7 @@ func Test_SelectRandomWordReturnsErrorWhenListIsEmpty(t *testing.T) {
 	assert.True(t, errors.Is(err, ErrEmptyWordlist))
 }
 
-func Test_SelectRandomWordREturnsErrorWhenListIsEmpty(t *testing.T) {
+func Test_SelectRandomWordReturnsRandomWord(t *testing.T) {
 	wordlist := []string{
 		"hello",
 		"stuff",
