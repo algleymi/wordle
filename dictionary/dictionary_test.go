@@ -10,7 +10,7 @@ import (
 
 func Test_DictionaryListsWords(t *testing.T) {
 	wordlist := GetWordList()
-	assert.Equal(t, 12972, len(wordlist))
+	assert.Equal(t, 12949, len(wordlist))
 }
 
 func Test_SelectRandomWordReturnsErrorWhenListIsEmpty(t *testing.T) {
