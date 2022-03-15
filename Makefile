@@ -1,3 +1,4 @@
+.PHONY: get lint test deps
 all: get lint test
 
 lint:
